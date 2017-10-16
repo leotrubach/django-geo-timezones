@@ -1,10 +1,10 @@
 from django.db import models
-from django.contrib.gis.db.models import PolygonField, GeoManager
+from django.contrib.gis.db.models import PolygonField
 
 __author__ = 'Alex Malyshev <malyshevalex@gmail.com>'
 
 
-class TimezoneManager(GeoManager):
+class TimezoneManager(models.Manager):
 
     def find(self, point):
         return self.filter(geom__contains=point).first()
